@@ -5,8 +5,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview",
-        "postinstall": "ls -l node_modules/.bin"
+        "preview": "vite preview"
     },
     "dependencies": {
         "framer-motion": "^12.18.1",
