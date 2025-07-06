@@ -1,11 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs,
-  FaGitAlt, FaJava, FaGithub, FaDatabase
+  FaHtml5, FaCss3Alt, FaReact, FaJava, FaGithub, FaDatabase
 } from "react-icons/fa";
 import {
-  SiTailwindcss, SiMysql, SiSpringboot, SiJavascript, SiMongodb,
+  SiTailwindcss, SiMysql, SiSpringboot, SiJavascript, SiMongodb, SiAmazonaws, SiDocker
 } from "react-icons/si";
 
 
@@ -25,7 +24,7 @@ const skills = [
     icon: <SiSpringboot className="text-green-700" />,
     name: "Spring Boot",
     description: "Built robust RESTful APIs using Spring Boot with validation, exception handling, and MySQL integration for full-stack applications.",
-    categories: ["Frameworks", "Web Development"],
+    categories: ["Frameworks & Tools", "Web Development"],
     proficiency: 90,
     projects: [
       { name: "Portfolio Backend" },
@@ -36,7 +35,7 @@ const skills = [
     name: "JavaScript",
     description: "Extensive experience in building interactive web applications. Also, worked on gateway scripts for API management.",
     categories: ["Programming"],
-    proficiency: 95,
+    proficiency: 80,
     projects: [
       { name: "Portfolio" },
       { name: "E-commerce Application" },]
@@ -45,7 +44,7 @@ const skills = [
     icon: <FaReact className="text-cyan-400" />,
     name: "React",
     description: "Used React to develop interactive UIs with reusable components, stateful logic via hooks, and client-side routing with React Router for multiple web projects.",
-    categories: ["Frameworks", "Web Development"],
+    categories: ["Frameworks & Tools", "Web Development"],
     proficiency: 70,
     projects: [
       { name: "Portfolio Frontend" },
@@ -67,7 +66,7 @@ const skills = [
     icon: <FaDatabase className="text-indigo-600" />,
     name: "SQL/PostgreSQL",
     description: "Used SQL for querying and managing relational databases, including data retrieval, joins, filtering, and aggregation in projects with MySQL and PostgreSQL.",
-    categories: ["Web Development", "Tools"],
+    categories: ["Web Development", "Frameworks"],
     proficiency: 90,
     projects: [
       { name: "Various projects" }]
@@ -77,7 +76,18 @@ const skills = [
     icon: <SiMongodb className="text-green-500" />,
     name: "MongoDB",
     description: "Experience using MongoDB as a NoSQL database for storing and querying flexible, schema-less data. Integrated it with backend services to handle dynamic content and perform CRUD operations efficiently.",
-    proficiency: 90
+    proficiency: 90,
+    projects: [
+      { name: "Various projects" }]
+  },
+  {
+    icon: <SiAmazonaws className="text-[#FF9900]" />,
+    name: "AWS",
+    description: "Experience using MongoDB as a NoSQL database for storing and querying flexible, schema-less data. Integrated it with backend services to handle dynamic content and perform CRUD operations efficiently.",
+    proficiency: 90,
+    categories: ["Frameworks"],
+    projects: [
+      { name: "Various projects" }]
   },
   {
     icon: <FaHtml5 className="text-orange-500" />,
@@ -98,11 +108,10 @@ const skills = [
       { name: "Various projects" }]
   },
   {
-    icon: <SiTailwindcss className="text-sky-400" />,
-    name: "Tailwind CSS",
-    description: "Used Tailwind CSS to build modern, responsive UI components with utility-first classes, enabling consistent design and rapid development.",
-    categories: ["Web Development"],
-    proficiency: 65
+    icon: <SiDocker className="text-[#2496ED]" />, // Docker blue
+    name: "Docker",
+    description: "Used Docker to containerize backend applications for consistent deployment across environments. Familiar with writing Dockerfiles and managing containers.",
+    categories: ["Frameworks"]
   },
   {
     icon: (
@@ -113,15 +122,28 @@ const skills = [
       />
     ),
     name: "Python",
-    description: "Used python for machine learning",
+    description: "Used Python extensively for machine learning, computer vision, and data structure & algorithm (DSA) problems. I've worked with popular libraries like NumPy, Pandas, OpenCV, scikit-learn, and TensorFlow to build intelligent systems and analyze data. It’s my go-to language for prototyping ideas quickly and solving complex algorithmic challenges.",
     categories: ["Programming"],
-    proficiency: 90
+    proficiency: 90,
+    projects: [
+      { name: "Prediction of Power Energy Consumption" },
+      { name: "Face-recognition based attendence system" }]
+  },
+  {
+    icon: <SiTailwindcss className="text-sky-400" />,
+    name: "Tailwind CSS",
+    description: "Used Tailwind CSS to build modern, responsive UI components with utility-first classes, enabling consistent design and rapid development.",
+    categories: ["Web Development"],
+    proficiency: 65,
+    projects: [
+      { name: "Portfolio Frontend" },
+      { name: "E-commerce Application Frontend" }]
   },
   {
     icon: <FaGithub className="text-gray-800 dark:text-white" />,
     name: "Git/GitHub",
-    description: "Version control, collaboration, and CI/CD basics.",
-    categories: ["Tools"],
+    description: "Version control with Git and GitHub for managing projects, collaborating via pull requests, and maintaining clean, well-documented repos.",
+    categories: ["Frameworks"],
     proficiency: 90
   },
 ];
@@ -186,7 +208,7 @@ export default function SkillsSection() {
       </motion.h2>
 
       <div className="flex flex-wrap gap-2 justify-center mt-0.5 sm:mt-4">
-        {["All Skills", "Programming", "Web Development", "Frameworks", "Tools"].map((cat) => (
+        {["All Skills", "Programming", "Web Development", "Frameworks"].map((cat) => (
           <button
             key={cat}
             onClick={() => setSelectedCategory(cat)}
@@ -201,12 +223,13 @@ export default function SkillsSection() {
 
       {/*Skill Grid*/}
       <motion.div
-        className={`${(filteredSkills.length <= 6)
-          ? "flex flex-wrap justify-center gap-6"
-          : "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 w-full max-w-7xl px-2 sm:px-4 mx-auto"
-          } w-full max-w-7xl`}
+        className={`w-full max-w-7xl px-2 sm:px-4 mx-auto ${filteredSkills.length <= 4
+          ? "flex justify-center gap-6 flex-wrap"
+          : "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4"
+          }`}
         variants={containerVariants}
       >
+
         {skillsToShow.map((skill, index) => (
           <div
             key={index}

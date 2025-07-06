@@ -12,10 +12,38 @@ export default function ContactSection() {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert("Message sent: " + JSON.stringify(formData));
-        setFormData({ name: "", email: "", message: "" });
+        try {
+
+            const reqPayload = {
+                ...formData,
+                fromPage : "portfolio"
+            };
+
+            const response = await fetch("http://54.90.115.146:8080/api/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(reqPayload),
+            });
+
+            if (!response.ok) {
+                throw new Error("Something went wrong");
+            }
+
+            const result = await response.json();
+            console.log("Message sent successfully:", result);
+
+            alert("Message sent successfully!");
+
+            // Reset the form
+            setFormData({ name: "", email: "", message: "" });
+        } catch (error) {
+            console.error("Error sending message:", error);
+            alert("Failed to send message. Please try again.");
+        }
     };
     return (
         <motion.section
@@ -23,7 +51,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="min-h-[70vh] flex flex-col justify-center items-center w-full max-w-xl px-4 scroll-mt-16"
+            className="min-h-[70vh] flex flex-col justify-center items-center w-full max-w-xl px-4 scroll-mt-40"
         >
             <h3 className="text-2xl font-semibold mb-4 text-center">Connect With Me</h3>
             <p className="text-center text-gray-600 dark:text-gray-400 mb-6">

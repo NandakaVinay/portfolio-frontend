@@ -8,18 +8,23 @@ import {
 
 export default function Header({ darkMode, setDarkMode }) {
 
-    const [activeSection, setActiveSection] = useState("about");
+    const [activeSection, setActiveSection] = useState("home");
     const [menuOpen, setMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollPos = window.scrollY + 100;
-            const sections = ["about", "skills", "projects", "contact"];
+            const scrollPos = window.scrollY + window.innerHeight / 3;
+            const sections = ["home", "about", "skills", "projects", "contact"];
+
             for (const sec of sections) {
                 const el = document.getElementById(sec);
-                if (el && scrollPos >= el.offsetTop && scrollPos < el.offsetTop + el.offsetHeight) {
-                    setActiveSection(sec);
-                    break;
+                if (el) {
+                    const top = el.offsetTop;
+                    const height = el.offsetHeight;
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        setActiveSection(sec);
+                        break;
+                    }   
                 }
             }
         };
@@ -27,6 +32,7 @@ export default function Header({ darkMode, setDarkMode }) {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
     return (
         <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 flex flex-col sm:flex-row justify-between items-center px-6 py-4 shadow dark:shadow-gray-800 gap-4">
             <motion.h1
@@ -39,6 +45,17 @@ export default function Header({ darkMode, setDarkMode }) {
             <div className="flex gap-4 items-center">
                 {/* Desktop links */}
                 <div className="hidden md:flex gap-4">
+                    <motion.a
+                        href="#home"
+                        className={`px-3 py-1 rounded-md transition-all duration-300 ${activeSection === "home"
+                            ? "bg-blue-500 text-white shadow-md"
+                            : "hover:bg-blue-100 dark:hover:bg-gray-700"
+                            }`}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        Home
+                    </motion.a>
                     <motion.a
                         href="#about"
                         className={`px-3 py-1 rounded-md transition-all duration-300 ${activeSection === "about"
@@ -115,14 +132,14 @@ export default function Header({ darkMode, setDarkMode }) {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="absolute top-full left-0 w-full bg-white dark:bg-gray-900 md:hidden shadow-md z-40 flex flex-col gap-3 text-center px-4 py-4"
                     >
-                        {["about", "skills", "projects", "contact"].map((sec) => (
+                        {["home", "about", "skills", "projects", "contact"].map((sec) => (
                             <a
                                 key={sec}
                                 href={`#${sec}`}
                                 onClick={() => setMenuOpen(false)}
                                 className={`inline-block w-fit px-3 py-2 rounded-md transition-all duration-300 ${activeSection === sec
-                                        ? "bg-blue-500 text-white shadow-md"
-                                        : "hover:bg-blue-100 dark:hover:bg-gray-700"
+                                    ? "bg-blue-500 text-white shadow-md"
+                                    : "hover:bg-blue-100 dark:hover:bg-gray-700"
                                     }`}
                             >
                                 {sec.charAt(0).toUpperCase() + sec.slice(1)}

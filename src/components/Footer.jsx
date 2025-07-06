@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="py-6 flex flex-col items-center justify-center gap-4 border-t border-gray-300 dark:border-gray-700 text-2xl">
       <div className="flex gap-6">
         <motion.a
-          href="https://github.com"
+          href="https://github.com/NandakaVinay"
           target="_blank"
           rel="noreferrer"
           transition={{ type: "spring", stiffness: 300 }}
@@ -16,7 +16,7 @@ export default function Footer() {
           <FaGithub size={24} />
         </motion.a>
         <motion.a
-          href="https://linkedin.com"
+          href="https://linkedin.com/in/nandaka-vinay"
           target="_blank"
           rel="noreferrer"
           transition={{ type: "spring", stiffness: 300 }}
@@ -25,7 +25,7 @@ export default function Footer() {
           <FaLinkedin size={24} />
         </motion.a>
         <motion.a
-          href="mailto:your.email@gmail.com"
+          href="mailto:nandakavinay@gmail.com"
           transition={{ type: "spring", stiffness: 300 }}
           whileHover={{ scale: 1.25 }}
         >

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 import Header from "./components/Header";
+import HomeSection from "./components/Home";
 import AboutSection from "./components/About";
 import SkillsSection from './components/Skills';
 import ProjectsSection from "./components/Projects";
@@ -38,8 +39,10 @@ export default function App() {
 
       <main className="flex flex-col items-center justify-center min-h-screen text-center px-4 py-8 sm:px-6 sm:py-10 gap-12">
 
-        <AboutSection />
+        <HomeSection />
 
+        <AboutSection />
+        
         <SkillsSection />
 
         <ProjectsSection />
@@ -61,7 +64,7 @@ export default function App() {
             aria-label="Back to top"
           >
             <span className="text-xl">↑</span>
-            <span>Back to top</span>
+            <span className="hidden sm:inline">Back to top</span>
           </motion.button>
         )
       }

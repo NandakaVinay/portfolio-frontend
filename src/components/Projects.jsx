@@ -48,18 +48,24 @@ export default function ProjectSection() {
                             Tap to know more →
                         </p>
                     </motion.div>
-
                 ))}
             </div>
 
-
-            <motion.a
-                href="#contact"
-                className="mt-2 sm:mt-6 inline-block text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16"
+            <motion.button
+                onClick={() => {
+                  const aboutEl = document.getElementById("contact");
+                  if (aboutEl) {
+                    aboutEl.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }
+                }}
+                className="mt-8 inline-block text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16 text-base sm:text-lg md:text-xl"
                 whileHover={{ scale: 1.05 }}
-            >
-                ↓ Connect With Me
-            </motion.a>
+              >
+                ↓ Connect with Me
+              </motion.button>
         </motion.section>
     );
 }
