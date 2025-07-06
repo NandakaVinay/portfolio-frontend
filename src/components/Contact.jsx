@@ -21,7 +21,7 @@ export default function ContactSection() {
                 fromPage : "portfolio"
             };
 
-            const response = await fetch("http://54.90.115.146:8080/api/send-email", {
+            const response = await fetch("http://35.172.228.231:8080/api/send-email", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
