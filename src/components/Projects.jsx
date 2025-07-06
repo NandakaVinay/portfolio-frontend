@@ -30,31 +30,32 @@ export default function ProjectSection() {
             className="min-h-screen flex flex-col justify-center items-center gap-6 w-full max-w-4xl px-4 scroll-mt-16"
         >
             <h3 className="text-3xl font-semibold mb-8 text-center">Projects</h3>
-            <div className="grid md:grid-cols-2 gap-6 pb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-4">
                 {projects.map((project, index) => (
                     <motion.div
                         key={index}
-                        className="p-4 border-2 border-gray-300 dark:border-gray-600 rounded-lg shadow dark:shadow-lg dark:bg-gray-800 text-left hover:shadow-xl transition-shadow duration-300 hover:border-blue-400 dark:hover:border-blue-300"
+                        onClick={() => setSelectedProject(project)}
+                        className="cursor-pointer w-full max-w-[90%] sm:max-w-sm mx-auto p-3 sm:p-4 border-2 border-gray-300 dark:border-gray-600 
+             rounded-lg shadow dark:shadow-lg dark:bg-gray-800 text-left 
+             hover:shadow-xl transition-shadow duration-300 
+             hover:border-blue-400 dark:hover:border-blue-300"
                         whileHover={{ scale: 1.03 }}
                     >
-                        <h4 className="text-xl font-semibold mb-2 text-center">{project.title}</h4>
-                        <p className="text-gray-700 dark:text-gray-300 mb-3 text-center">{project.description}</p>
-                        <div className="text-center">
-                            <a
-                                href={project.codeLink}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center text-blue-600 hover:underline"
-                            >
-                                <FaCode className="mr-2" /> View Code
-                            </a>
-                        </div>
+                        <h4 className="text-lg sm:text-xl font-semibold mb-2 text-center">{project.title}</h4>
+                        <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 text-center">{project.description}</p>
+
+                        <p className="text-blue-600 dark:text-blue-400 font-medium text-sm sm:text-base text-center mt-2 italic opacity-90">
+                            Tap to know more →
+                        </p>
                     </motion.div>
+
                 ))}
             </div>
+
+
             <motion.a
                 href="#contact"
-                className="mt-6 inline-block text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16"
+                className="mt-2 sm:mt-6 inline-block text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16"
                 whileHover={{ scale: 1.05 }}
             >
                 ↓ Connect With Me

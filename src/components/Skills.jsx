@@ -96,7 +96,7 @@ const skills = [
     proficiency: 75,
     projects: [
       { name: "Various projects" }]
-  },  
+  },
   {
     icon: <SiTailwindcss className="text-sky-400" />,
     name: "Tailwind CSS",
@@ -185,7 +185,7 @@ export default function SkillsSection() {
         Skills
       </motion.h2>
 
-      <div className="flex flex-wrap gap-3 justify-center mt-4">
+      <div className="flex flex-wrap gap-2 justify-center mt-0.5 sm:mt-4">
         {["All Skills", "Programming", "Web Development", "Frameworks", "Tools"].map((cat) => (
           <button
             key={cat}
@@ -203,7 +203,7 @@ export default function SkillsSection() {
       <motion.div
         className={`${(filteredSkills.length <= 6)
           ? "flex flex-wrap justify-center gap-6"
-          : "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6"
+          : "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 w-full max-w-7xl px-2 sm:px-4 mx-auto"
           } w-full max-w-7xl`}
         variants={containerVariants}
       >
@@ -211,17 +211,17 @@ export default function SkillsSection() {
           <div
             key={index}
             onClick={() => setSelectedSkill(skill)}
-            className="border-2 border-gray-300 dark:border-gray-600 w-30 h-30 sm:w-36 sm:h-36 p-4 rounded-lg 
-              cursor-pointer flex flex-col items-center justify-center gap-4
-              transition-transform transform hover:scale-[1.05] 
-              duration-150 ease-in-out 
-            hover:border-blue-400 dark:hover:border-blue-300 will-change-transform"
+            className="w-full max-w-[120px] sm:max-w-[140px] aspect-square border-2 border-gray-300 dark:border-gray-600 p-3 rounded-lg 
+    cursor-pointer flex flex-col items-center justify-center gap-3
+    transition-transform transform hover:scale-[1.05] 
+    duration-150 ease-in-out 
+    hover:border-blue-400 dark:hover:border-blue-300 will-change-transform mx-auto"
           >
 
-            <div className="w-10 h-10 flex items-center justify-center text-4xl sm:text-5xl">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center text-3xl sm:text-4xl">
               {skill.icon}
             </div>
-            <p className="text-center text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300">
+            <p className="text-center text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300">
               {skill.name}
             </p>
           </div>
@@ -241,7 +241,7 @@ export default function SkillsSection() {
             }
             setShowAll(!showAll);
           }}
-          className="mt-6 px-6 py-2 rounded-full bg-blue-500 text-white font-semibold shadow-md hover:bg-blue-600 transition duration-300"
+          className="mt-1 sm:mt-6 px-6 py-2 rounded-full bg-blue-500 text-white font-semibold shadow-md hover:bg-blue-600 transition duration-300"
         >
           {showAll ? "Show Less" : "Show More"}
         </button>
@@ -251,7 +251,7 @@ export default function SkillsSection() {
       {!showAll && (
         <motion.a
           href="#projects"
-          className="mt-8 inline-block text-blue-600 dark:text-blue-400 font-medium animate-bounce"
+          className="mt-1 sm:mt-8 inline-block text-blue-600 dark:text-blue-400 font-medium animate-bounce"
           whileHover={{ scale: 1.05 }}
         >
           ↓ View Projects
@@ -262,14 +262,14 @@ export default function SkillsSection() {
       <AnimatePresence>
         {selectedSkill && (
           <motion.div
-            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-2 overflow-y-auto"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedSkill(null)}
           >
             <motion.div
-              className="bg-white dark:bg-gray-900 rounded-lg p-6 max-w-sm w-full shadow-lg relative"
+              className="bg-white dark:bg-gray-900 rounded-lg p-6 max-w-sm w-full shadow-lg relative max-h-[90vh] overflow-y-auto"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.8 }}
@@ -316,15 +316,15 @@ export default function SkillsSection() {
                   <h4 className="text-lg font-semibold text-left text-gray-800 dark:text-gray-200 mb-2">
                     Featured Projects
                   </h4>
-                    <ul className="space-y-1">
-                      {selectedSkill.projects.map((project, idx) => (
-                        <li key={idx} className="flex gap-2 text-gray-700 dark:text-gray-300">
-                          <span className="mt-1 text-sm">•</span>
-                          <span>{project.name}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <ul className="space-y-1">
+                    {selectedSkill.projects.map((project, idx) => (
+                      <li key={idx} className="flex gap-2 text-gray-700 dark:text-gray-300">
+                        <span className="mt-1 text-sm">•</span>
+                        <span>{project.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </motion.div>
           </motion.div>
