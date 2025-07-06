@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
     FaSun,
@@ -10,6 +10,7 @@ export default function Header({ darkMode, setDarkMode }) {
 
     const [activeSection, setActiveSection] = useState("home");
     const [menuOpen, setMenuOpen] = useState(false);
+    const menuRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -24,7 +25,7 @@ export default function Header({ darkMode, setDarkMode }) {
                     if (scrollPos >= top && scrollPos < top + height) {
                         setActiveSection(sec);
                         break;
-                    }   
+                    }
                 }
             }
         };
@@ -32,6 +33,25 @@ export default function Header({ darkMode, setDarkMode }) {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    //Closing the menu when user clicks outside the menu    
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (menuRef.current && !menuRef.current.contains(e.target)) {
+                setMenuOpen(false);
+            }
+        };
+
+        if (menuOpen) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [menuOpen]);
 
     return (
         <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 flex flex-col sm:flex-row justify-between items-center px-6 py-4 shadow dark:shadow-gray-800 gap-4">
@@ -125,12 +145,13 @@ export default function Header({ darkMode, setDarkMode }) {
             <AnimatePresence>
                 {menuOpen && (
                     <motion.div
+                        ref={menuRef}
                         key="mobile-menu"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="absolute top-full left-0 w-full bg-white dark:bg-gray-900 md:hidden shadow-md z-40 flex flex-col gap-3 text-center px-4 py-4"
+                        className="absolute top-full left-0 w-full bg-white dark:bg-gray-900 md:hidden shadow-md z-40 flex flex-col items-center justify-center gap-3 text-center px-4 py-4"
                     >
                         {["home", "about", "skills", "projects", "contact"].map((sec) => (
                             <a
