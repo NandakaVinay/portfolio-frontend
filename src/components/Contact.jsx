@@ -18,10 +18,10 @@ export default function ContactSection() {
 
             const reqPayload = {
                 ...formData,
-                fromPage : "portfolio"
+                fromPage: "portfolio"
             };
 
-            const response = await fetch("http://35.172.228.231:8080/api/send-email", {
+            const response = await fetch("https://api.ioll.in/api/send-email", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -32,12 +32,12 @@ export default function ContactSection() {
             if (!response.ok) {
                 throw new Error("Something went wrong");
             }
+            else {
+                const result = await response.text();
+                console.log("Message sent successfully:", result);
 
-            const result = await response.json();
-            console.log("Message sent successfully:", result);
-
-            alert("Message sent successfully!");
-
+                alert("Message sent successfully!");
+            }
             // Reset the form
             setFormData({ name: "", email: "", message: "" });
         } catch (error) {
