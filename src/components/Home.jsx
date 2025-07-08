@@ -8,7 +8,7 @@ export default function HomeSection() {
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.6 }}
-  className="flex flex-col justify-center items-center text-center px-4 py-16 gap-8 scroll-mt-16 w-full max-w-xl sm:max-w-2xl lg:max-w-3xl min-h-[85vh]"
+  className="flex flex-col justify-center items-center text-center px-4 py-12 sm:py-14 md:py-16 gap-8 scroll-mt-24 w-full max-w-xl sm:max-w-2xl lg:max-w-3xl min-h-[85vh]"
 >
   <motion.img
     src="/images/profile.png"

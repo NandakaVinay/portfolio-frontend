@@ -19,6 +19,11 @@ export default function ProjectSection() {
             description: "A simple task manager app with CRUD operations.",
             codeLink: "https://github.com/yourusername/task-manager",
         },
+        {
+            title: "Power Consumption Prediction",
+            description: "A machine learning project",
+            codeLink: "https://github.com/yourusername/power",
+        }
     ];
 
     return (
@@ -27,9 +32,9 @@ export default function ProjectSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="min-h-screen flex flex-col justify-center items-center gap-6 w-full max-w-4xl px-4 scroll-mt-16"
+            className="scroll-mt-20 md:scroll-mt-32 px-4 sm:px-6 pt-8 sm:pt-12 md:pt-24 pb-12 sm:mt-12 sm:mb-12 max-w-6xl mx-auto flex flex-col gap-10 items-center"
         >
-            <h3 className="text-3xl font-semibold mb-8 text-center">Projects</h3>
+            <h3 className="text-3xl sm:text-5xl font-extrabold text-center text-neutral-900 dark:text-white">Projects</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-4">
                 {projects.map((project, index) => (
                     <motion.div
@@ -61,11 +66,11 @@ export default function ProjectSection() {
                     });
                   }
                 }}
-                className="mt-8 inline-block text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16 text-base sm:text-lg md:text-xl"
+                className="hidden lg:flex mt-8 text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16 text-base sm:text-lg md:text-xl"
                 whileHover={{ scale: 1.05 }}
               >
                 ↓ Connect with Me
-              </motion.button>
+            </motion.button>
         </motion.section>
     );
 }

@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="py-6 flex flex-col items-center justify-center gap-4 border-t border-gray-300 dark:border-gray-700 text-2xl">
+    <footer className="mt-2 sm:mt-2 py-6 flex flex-col items-center justify-center gap-4 border-t border-gray-300 dark:border-gray-700 text-2xl">
       <div className="flex gap-6">
         <motion.a
           href="https://github.com/NandakaVinay"

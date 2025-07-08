@@ -51,15 +51,14 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="min-h-[70vh] flex flex-col justify-center items-center w-full max-w-xl px-4 scroll-mt-40"
+            className="scroll-mt-16 md:scroll-mt-24 px-4 sm:px-6 pt-8 pb-2 sm:pb-4 max-w-3xl mx-auto flex flex-col items-center gap-2 sm:gap-6"
         >
-            <h3 className="text-2xl font-semibold mb-4 text-center">Connect With Me</h3>
-            <p className="text-center text-gray-600 dark:text-gray-400 mb-6">
+            <h3 className="text-3xl sm:text-5xl font-extrabold text-center text-neutral-900 dark:text-white">Connect With Me</h3>
+            <p className="text-center text-gray-600 dark:text-gray-400 max-w-xl">
                 Feel free to reach out for collaborations, project discussions, or just to say hi!
             </p>
-            <div className="w-full flex justify-center">
-                <div className="w-full max-w-2xl bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700">
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                <div className="w-full bg-gray-100 dark:bg-gray-800 p-6 sm:p-8 rounded-lg shadow-lg border border-gray-300 dark:border-gray-700">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-2 sm:gap-6">
                         <div className="flex flex-col text-left">
                             <label htmlFor="name" className="mb-1 font-medium text-sm sm:text-base">Name</label>
                             <input
@@ -101,14 +100,13 @@ export default function ContactSection() {
                         </div>
                         <motion.button
                             type="submit"
-                            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded mx-auto block"
+                            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 mt-2 rounded mx-auto block"
                             whileTap={{ scale: 0.95 }}
                         >
                             Send Message
                         </motion.button>
                     </form>
                 </div>
-            </div>
         </motion.section>
     );
 }

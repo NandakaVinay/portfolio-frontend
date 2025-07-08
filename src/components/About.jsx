@@ -5,12 +5,12 @@ export default function AboutSection() {
     return (
         <section
             id="about"
-            className="scroll-mt-24 md:scroll-mt-40 px-4 sm:px-6 py-12 max-w-6xl mx-auto flex flex-col gap-12"
+            className="scroll-mt-16 md:scroll-mt-40 px-4 sm:px-6 py-10 sm:py-12 md:py-14 max-w-6xl mx-auto flex flex-col gap-10 sm:gap-12"
         >
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
                 viewport={{ once: true }}
                 className="text-center w-full mb-4"
             >
@@ -26,9 +26,9 @@ export default function AboutSection() {
             <motion.div className="flex flex-col lg:flex-row items-center gap-12">
                 {/*Text on the left */}
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
                     viewport={{ once: true }}
                     className="lg:w-2/3 text-center lg:text-left"
                 >
@@ -42,9 +42,9 @@ export default function AboutSection() {
                 </motion.div>
                 {/*Card on the right */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
                     viewport={{ once: true }}
                     className="w-full max-w-sm bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-xl rounded-2xl p-6 flex flex-col items-center text-center"
                 >
@@ -75,14 +75,21 @@ export default function AboutSection() {
                     </div>
                 </motion.div>
             </motion.div>
-            <div className="hidden lg:flex justify-center mt-8">
-                <a
-                    href="#skills"
-                    className="mt-8 inline-block text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16 text-base sm:text-lg md:text-xl"
-                >
-                    ↓ View My Skills
-                </a>
-            </div>
+            <motion.button
+                onClick={() => {
+                  const aboutEl = document.getElementById("skills");
+                  if (aboutEl) {
+                    aboutEl.scrollIntoView({
+                      behavior: "smooth",
+                      block: "center",
+                    });
+                  }
+                }}
+                className="hidden lg:flex mt-8 text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16 justify-center text-base sm:text-lg md:text-xl"
+                whileHover={{ scale: 1.05 }}
+              >
+                ↓ View My Skills
+            </motion.button>
         </section>
     );
 }

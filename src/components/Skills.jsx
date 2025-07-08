@@ -186,21 +186,24 @@ export default function SkillsSection() {
   const skillsToShow = showAll
     ? filteredSkills
     : windowWidth < 640
-      ? filteredSkills.slice(0, 4)
+      ? filteredSkills.slice(0, 6)
       : filteredSkills.slice(0, 12);
 
   return (
     <motion.section
-      ref={sectionRef}
-      id="skills"
-      className="min-h-[80vh] flex flex-col items-center justify-center gap-12 px-4 pt-32"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={containerVariants}
-    >
+  ref={sectionRef}
+  id="skills"
+  className="relative scroll-mt-16 md:scroll-mt-24 sm:mt-16 sm:mb-16 px-4 sm:px-6 py-12 sm:py-20 max-w-7xl mx-auto flex flex-col gap-12 items-center
+             bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 to-white
+             dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={containerVariants}
+>
+
       <motion.h2
-        className="text-3xl font-bold"
+        className="text-3xl sm:text-5xl font-extrabold text-center text-neutral-900 dark:text-white"
         variants={itemVariants}
         transition={{ duration: 0.6 }}
       >
@@ -253,7 +256,7 @@ export default function SkillsSection() {
         ))}
       </motion.div>
 
-      {filteredSkills.length > (windowWidth < 640 ? 4 : 12) && (
+      {filteredSkills.length > (windowWidth < 640 ? 6 : 12) && (
         <button
           onClick={() => {
             if (showAll) {
@@ -272,13 +275,21 @@ export default function SkillsSection() {
       )}
 
       {!showAll && (
-        <motion.a
-          href="#projects"
-          className="mt-1 sm:mt-8 inline-block text-blue-600 dark:text-blue-400 font-medium animate-bounce"
+        <motion.button
+          onClick={() => {
+            const aboutEl = document.getElementById("projects");
+            if (aboutEl) {
+              aboutEl.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }
+          }}
+          className="hidden lg:flex mt-8 text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16 text-base sm:text-lg md:text-xl"
           whileHover={{ scale: 1.05 }}
         >
-          ↓ View Projects
-        </motion.a>
+          ↓ View my projects
+        </motion.button>
       )}
 
       {/* Modal for selected skill */}
