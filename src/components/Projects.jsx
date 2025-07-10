@@ -5,23 +5,47 @@ export default function ProjectSection() {
     const projects = [
         {
             title: "Portfolio Website",
-            description: "A responsive portfolio website with dark mode and animations.",
+            image: "/images/portfolio.png",
             codeLink: "https://github.com/yourusername/portfolio",
+            descriptionPoints: [
+                "Built a fully responsive and visually appealing portfolio website tailored for both desktop and mobile users using a mobile-first approach with Tailwind CSS, ensuring smooth rendering across all screen sizes.",
+                "Implemented dark and light mode toggle functionality using Tailwind’s dark variant and React state, allowing users to switch themes seamlessly with preserved preferences using localStorage.",
+                "Leveraged Framer Motion to add elegant page transitions and interactive animations, enhancing the user experience with smooth hover effects, fade-ins, scroll-based animations, and modals.",
+                "Created a modular skill section with interactive filter buttons and animated pop-up modals that display detailed information about each skill, including related projects, experience level, and tech stack."
+            ]
         },
         {
             title: "E-commerce App",
-            description: "A full-stack shopping app using Spring Boot and React.",
+            image: "/images/ecommerce.png",
             codeLink: "https://github.com/yourusername/ecommerce-app",
+            descriptionPoints: [
+                "Built with Spring Boot (backend) and React (frontend).",
+                "JWT-based authentication and role management.",
+                "Admin panel to manage products and orders.",
+                "Stripe integration for secure payments."
+            ]
         },
         {
             title: "Task Manager",
-            description: "A simple task manager app with CRUD operations.",
+            image: "/images/task-manager.png",
             codeLink: "https://github.com/yourusername/task-manager",
+            descriptionPoints: [
+                "Add, update, delete tasks with localStorage persistence.",
+                "Simple and clean UI using React and Tailwind.",
+                "Task status toggle for 'completed' or 'pending'.",
+                "Responsive layout across all devices."
+            ]
         },
         {
             title: "Power Consumption Prediction",
-            description: "A machine learning project",
+            image: "/images/power.png",
             codeLink: "https://github.com/yourusername/power",
+            descriptionPoints: [
+                "Forecasts energy usage using historical time-series data.",
+                "Used Python, Pandas, and Scikit-learn.",
+                "Linear Regression and LSTM models tested.",
+                "Results visualized using Matplotlib."
+            ]
         }
     ];
 
@@ -31,45 +55,47 @@ export default function ProjectSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="scroll-mt-20 md:scroll-mt-28 px-4 sm:px-6 pt-8 sm:pt-12 md:pt-24 pb-12 sm:mt-12 sm:mb-12 max-w-6xl mx-auto flex flex-col gap-10 items-center"
+            className="scroll-mt-20 md:scroll-mt-28 px-4 sm:px-6 pt-8 sm:pt-12 md:pt-24 pb-12 max-w-6xl mx-auto flex flex-col gap-16 items-center"
         >
             <h3 className="text-3xl sm:text-5xl font-extrabold text-center text-neutral-900 dark:text-white">Projects</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-4">
+
+            <div className="w-full flex flex-col gap-12">
                 {projects.map((project, index) => (
                     <motion.div
                         key={index}
-                        onClick={() => setSelectedProject(project)}
-                        className="cursor-pointer w-full max-w-[90%] sm:max-w-sm mx-auto p-3 sm:p-4 border-2 border-gray-300 dark:border-gray-600 
-             rounded-lg shadow dark:shadow-lg dark:bg-gray-800 text-left 
-             hover:shadow-xl transition-shadow duration-300 
-             hover:border-blue-400 dark:hover:border-blue-300"
-                        whileHover={{ scale: 1.03 }}
+                        className="flex flex-col md:flex-row items-start md:items-stretch gap-6 md:gap-10 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-600 hover:border-blue-400 dark:hover:border-blue-300 p-6"
                     >
-                        <h4 className="text-lg sm:text-xl font-semibold mb-2 text-center">{project.title}</h4>
-                        <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-3 text-center">{project.description}</p>
+                        <div className="w-full md:w-1/3 flex items-center">
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-auto max-h-52 object-cover rounded-xl"
+                            />
+                        </div>
 
-                        <p className="text-blue-600 dark:text-blue-400 font-medium text-sm sm:text-base text-center mt-2 italic opacity-90">
-                            Tap to know more →
-                        </p>
+                        <div className="hidden md:block w-1 bg-gradient-to-b from-blue-400 via-transparent to-purple-500 rounded-full" />
+
+                        <div className="flex flex-col gap-3 w-full">
+                            <h4 className="text-2xl font-bold text-gray-800 dark:text-white text-center md:text-center">{project.title}</h4>
+                            <ul className="text-gray-700 dark:text-gray-300 text-m text-left list-disc list-outside pl-5 space-y-4">
+                                {project.descriptionPoints.map((point, i) => (
+                                    <li key={i}>{point}</li>
+                                ))}
+                            </ul>
+                            <div className="mt-4 md:mt-6 text-center md:text-center">
+                                <a
+                                    href={project.codeLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-block text-blue-600 dark:text-blue-400 font-medium hover:underline"
+                                >
+                                    View Code →
+                                </a>
+                            </div>
+                        </div>
                     </motion.div>
                 ))}
             </div>
-
-            {/* <motion.button
-                onClick={() => {
-                    const aboutEl = document.getElementById("contact");
-                    if (aboutEl) {
-                        aboutEl.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                        });
-                    }
-                }}
-                className="hidden lg:flex mt-8 text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16 text-base sm:text-lg md:text-xl"
-                whileHover={{ scale: 1.05 }}
-            >
-                ↓ Connect with Me
-            </motion.button> */}
         </motion.section>
     );
 }
