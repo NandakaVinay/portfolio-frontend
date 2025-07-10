@@ -33,7 +33,7 @@ export default function AboutSection() {
                     className="lg:w-2/3 text-center lg:text-left"
                 >
                     <p className="text-lg text-neutral-800 dark:text-neutral-200 leading-relaxed">
-                        With over 2 years of hands-on experience, I specialize in building robust backend systems and designing scalable, cloud-native solutions
+                        With over 2 years of hands-on experience, I specialize in building robust backend systems and designing scalable, cloud-native solutions.
                         <br /><br />
                         I work extensively with Java and Spring Boot to build robust RESTful APIs, integrate databases, and develop secure, high-performance server-side applications. My experience includes deploying microservices, handling authentication flows, and optimizing backend performance for real-world applications.
                         <br /><br />
@@ -64,7 +64,7 @@ export default function AboutSection() {
 
                     <div className="mt-6 w-full relative pl-4">
                         {/* Vertical line */}
-                        <div className="absolute top-1 left-2 h-[70%] w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 dark:from-blue-400 dark:via-blue-300 dark:to-blue-200 rounded-full"></div>
+                        <div className="absolute top-1 left-2 h-[85%] w-0.5 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 dark:from-blue-400 dark:via-blue-300 dark:to-blue-200 rounded-full"></div>
                         <div className="mb-6 pl-4 relative">
                             {/* Dot */}
                             <div className="absolute left-0 top-[6px] w-2.5 h-2.5 rounded-full bg-blue-500 dark:bg-blue-400 border-2 border-white dark:border-gray-800"></div>
@@ -72,10 +72,17 @@ export default function AboutSection() {
                             <p className="text-left font-semibold text-neutral-800 dark:text-neutral-100">Backend Developer</p>
                             <p className="text-left text-sm text-neutral-600 dark:text-neutral-400">Tata Consultancy Services</p>
                         </div>
+                        <div className="mb-6 pl-4 relative">
+                            {/* Dot */}
+                            <div className="absolute left-0 top-[6px] w-2.5 h-2.5 rounded-full bg-blue-500 dark:bg-blue-400 border-2 border-white dark:border-gray-800"></div>
+                            <p className="text-left text-xs text-blue-500 uppercase tracking-wider">2019 – 2023</p>
+                            <p className="text-left font-semibold text-neutral-800 dark:text-neutral-100">Bachelor's Degree</p>
+                            <p className="text-left text-sm text-neutral-600 dark:text-neutral-400">Vignan Institute of Technology and Science</p>
+                        </div>
                     </div>
                 </motion.div>
             </motion.div>
-            <motion.button
+            {/* <motion.button
                 onClick={() => {
                     const aboutEl = document.getElementById("skills");
                     if (aboutEl) {
@@ -89,7 +96,7 @@ export default function AboutSection() {
                 whileHover={{ scale: 1.05 }}
             >
                 ↓ View My Skills
-            </motion.button>
+            </motion.button> */}
         </section>
     );
 }

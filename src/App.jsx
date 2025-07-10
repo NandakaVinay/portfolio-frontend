@@ -37,7 +37,7 @@ export default function App() {
 
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
-      <main className="flex flex-col items-center justify-center min-h-screen text-center px-4 py-8 sm:px-6 sm:py-10 gap-12">
+      <main className="flex flex-col items-center justify-center min-h-screen text-center py-8 sm:py-10">
 
         <HomeSection />
 
