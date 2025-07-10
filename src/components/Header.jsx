@@ -67,58 +67,58 @@ export default function Header({ darkMode, setDarkMode }) {
                 <div className="hidden md:flex gap-4">
                     <motion.a
                         href="#home"
-                        className={`px-3 py-1 rounded-md transition-all duration-300 ${activeSection === "home"
-                            ? "bg-blue-500 text-white shadow-md"
-                            : "hover:bg-blue-100 dark:hover:bg-gray-700"
+                        className={`link-hover-effect px-3 py-1 rounded-md transition-all duration-300 relative ${activeSection === "home"
+                                ? "bg-blue-500 text-white shadow-md"
+                                : "hover:text-black dark:hover:text-white"
                             }`}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.10 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Home
+                        <span>Home</span>
                     </motion.a>
                     <motion.a
                         href="#about"
-                        className={`px-3 py-1 rounded-md transition-all duration-300 ${activeSection === "about"
-                            ? "bg-blue-500 text-white shadow-md"
-                            : "hover:bg-blue-100 dark:hover:bg-gray-700"
+                        className={`link-hover-effect px-3 py-1 rounded-md transition-all duration-300 relative ${activeSection === "about"
+                                ? "bg-blue-500 text-white shadow-md"
+                                : "hover:text-black dark:hover:text-white"
                             }`}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.10 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        About
+                        <span>About</span>
                     </motion.a>
                     <motion.a
                         href="#skills"
-                        className={`px-3 py-1 rounded-md transition-all duration-300 ${activeSection === "skills"
-                            ? "bg-blue-500 text-white shadow-md"
-                            : "hover:bg-blue-100 dark:hover:bg-gray-700"
+                        className={`link-hover-effect px-3 py-1 rounded-md transition-all duration-300 relative ${activeSection === "skills"
+                                ? "bg-blue-500 text-white shadow-md"
+                                : "hover:text-black dark:hover:text-white"
                             }`}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.10 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Skills
+                        <span>Skills</span>
                     </motion.a>
                     <motion.a
                         href="#projects"
-                        className={`px-3 py-1 rounded-md transition-all duration-300 ${activeSection === "projects"
-                            ? "bg-blue-500 text-white shadow-md"
-                            : "hover:bg-blue-100 dark:hover:bg-gray-700"
+                        className={`link-hover-effect px-3 py-1 rounded-md transition-all duration-300 relative ${activeSection === "projects"
+                                ? "bg-blue-500 text-white shadow-md"
+                                : "hover:text-black dark:hover:text-white"
                             }`}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.10 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Projects
+                        <span>Projects</span>
                     </motion.a>
                     <motion.a
                         href="#contact"
-                        className={`px-3 py-1 rounded-md transition-all duration-300 ${activeSection === "contact"
-                            ? "bg-blue-500 text-white shadow-md"
-                            : "hover:bg-blue-100 dark:hover:bg-gray-700"
+                        className={`link-hover-effect px-3 py-1 rounded-md transition-all duration-300 relative ${activeSection === "contact"
+                                ? "bg-blue-500 text-white shadow-md"
+                                : "hover:text-black dark:hover:text-white"
                             }`}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{ scale: 1.10 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        Contact
+                        <span>Contact</span>
                     </motion.a>
                 </div>
                 {/* Desktop-only Resume & Dark Mode Toggle */}

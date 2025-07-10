@@ -5,7 +5,7 @@ export default function AboutSection() {
     return (
         <section
             id="about"
-            className="scroll-mt-16 md:scroll-mt-40 px-4 sm:px-6 py-10 sm:py-12 md:py-14 max-w-6xl mx-auto flex flex-col gap-10 sm:gap-12"
+            className="scroll-mt-16 md:scroll-mt-28 px-4 sm:px-6 py-10 sm:py-12 md:py-14 max-w-6xl mx-auto flex flex-col gap-10 sm:gap-12"
         >
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -77,17 +77,17 @@ export default function AboutSection() {
             </motion.div>
             <motion.button
                 onClick={() => {
-                  const aboutEl = document.getElementById("skills");
-                  if (aboutEl) {
-                    aboutEl.scrollIntoView({
-                      behavior: "smooth",
-                      block: "center",
-                    });
-                  }
+                    const aboutEl = document.getElementById("skills");
+                    if (aboutEl) {
+                        aboutEl.scrollIntoView({
+                            behavior: "smooth",
+                            block: "center",
+                        });
+                    }
                 }}
                 className="hidden lg:flex mt-8 text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16 justify-center text-base sm:text-lg md:text-xl"
                 whileHover={{ scale: 1.05 }}
-              >
+            >
                 ↓ View My Skills
             </motion.button>
         </section>

@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaCode } from "react-icons/fa";
 
 export default function ProjectSection() {
     const projects = [
@@ -32,7 +31,7 @@ export default function ProjectSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="scroll-mt-20 md:scroll-mt-32 px-4 sm:px-6 pt-8 sm:pt-12 md:pt-24 pb-12 sm:mt-12 sm:mb-12 max-w-6xl mx-auto flex flex-col gap-10 items-center"
+            className="scroll-mt-20 md:scroll-mt-28 px-4 sm:px-6 pt-8 sm:pt-12 md:pt-24 pb-12 sm:mt-12 sm:mb-12 max-w-6xl mx-auto flex flex-col gap-10 items-center"
         >
             <h3 className="text-3xl sm:text-5xl font-extrabold text-center text-neutral-900 dark:text-white">Projects</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-4">
@@ -56,21 +55,21 @@ export default function ProjectSection() {
                 ))}
             </div>
 
-            <motion.button
+            {/* <motion.button
                 onClick={() => {
-                  const aboutEl = document.getElementById("contact");
-                  if (aboutEl) {
-                    aboutEl.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
-                  }
+                    const aboutEl = document.getElementById("contact");
+                    if (aboutEl) {
+                        aboutEl.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                    }
                 }}
                 className="hidden lg:flex mt-8 text-blue-600 dark:text-blue-400 font-medium animate-bounce scroll-mt-16 text-base sm:text-lg md:text-xl"
                 whileHover={{ scale: 1.05 }}
-              >
+            >
                 ↓ Connect with Me
-            </motion.button>
+            </motion.button> */}
         </motion.section>
     );
 }
