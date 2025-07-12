@@ -8,10 +8,19 @@ export default function ProjectSection() {
             image: "/images/portfolio.png",
             codeLink: "https://github.com/yourusername/portfolio",
             descriptionPoints: [
-                "Built a fully responsive and visually appealing portfolio website tailored for both desktop and mobile users using a mobile-first approach with Tailwind CSS, ensuring smooth rendering across all screen sizes.",
-                "Implemented dark and light mode toggle functionality using Tailwind’s dark variant and React state, allowing users to switch themes seamlessly with preserved preferences using localStorage.",
+                "Developed a fully responsive portfolio website using React and Tailwind CSS with a mobile-first approach, ensuring smooth performance across all devices.",
                 "Leveraged Framer Motion to add elegant page transitions and interactive animations, enhancing the user experience with smooth hover effects, fade-ins, scroll-based animations, and modals.",
-                "Created a modular skill section with interactive filter buttons and animated pop-up modals that display detailed information about each skill, including related projects, experience level, and tech stack."
+                "Enabled real-time contact functionality by integrating a Spring Boot backend on AWS EC2, allowing users to send messages via the portfolio’s contact form."
+            ]
+        },
+        {
+            title: "Power Consumption Prediction",
+            image: "/images/power.png",
+            codeLink: "https://github.com/yourusername/power",
+            descriptionPoints: [
+                "Developed a predictive model for residential power consumption using recurrent neural networks (RNNs), showcasing effective capture of temporal dependencies. ",
+                "Compared RNNs with decision tree and random forest, highlighting superior performance in accuracy and efficiency.",
+                "Demonstrated the potential of RNNs in optimizing energy consumption forecasting, offering insights for residential power management systems."
             ]
         },
         {
@@ -34,17 +43,6 @@ export default function ProjectSection() {
                 "Simple and clean UI using React and Tailwind.",
                 "Task status toggle for 'completed' or 'pending'.",
                 "Responsive layout across all devices."
-            ]
-        },
-        {
-            title: "Power Consumption Prediction",
-            image: "/images/power.png",
-            codeLink: "https://github.com/yourusername/power",
-            descriptionPoints: [
-                "Forecasts energy usage using historical time-series data.",
-                "Used Python, Pandas, and Scikit-learn.",
-                "Linear Regression and LSTM models tested.",
-                "Results visualized using Matplotlib."
             ]
         }
     ];
@@ -79,7 +77,7 @@ export default function ProjectSection() {
                             <h4 className="text-2xl font-bold text-gray-800 dark:text-white text-center md:text-center">{project.title}</h4>
                             <ul className="text-gray-700 dark:text-gray-300 text-m text-left list-disc list-outside pl-5 space-y-4">
                                 {project.descriptionPoints.map((point, i) => (
-                                    <li key={i}>{point}</li>
+                                    <li key={i} className="text-justify">{point}</li>
                                 ))}
                             </ul>
                             <div className="mt-4 md:mt-6 text-center md:text-center">

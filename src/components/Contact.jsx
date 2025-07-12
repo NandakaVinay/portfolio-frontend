@@ -51,7 +51,7 @@ export default function ContactSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="scroll-mt-16 md:scroll-mt-24 px-4 sm:px-6 pt-8 pb-2 sm:pb-4 max-w-3xl mx-auto flex flex-col items-center gap-2 sm:gap-6"
+            className="scroll-mt-20 md:scroll-mt-28 px-4 sm:px-6 pt-8 pb-2 sm:pb-4 max-w-3xl mx-auto flex flex-col items-center gap-2 sm:gap-6"
         >
             <h3 className="text-3xl sm:text-5xl font-extrabold text-center text-neutral-900 dark:text-white">Connect With Me</h3>
             <p className="text-center text-gray-600 dark:text-gray-400 max-w-xl">
