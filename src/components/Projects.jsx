@@ -6,7 +6,7 @@ export default function ProjectSection() {
         {
             title: "Portfolio Website",
             image: "/images/portfolio.png",
-            codeLink: "https://github.com/yourusername/portfolio",
+            codeLink: "https://github.com/NandakaVinay/portfolio",
             descriptionPoints: [
                 "Developed a fully responsive portfolio website using React and Tailwind CSS with a mobile-first approach, ensuring smooth performance across all devices.",
                 "Leveraged Framer Motion to add elegant page transitions and interactive animations, enhancing the user experience with smooth hover effects, fade-ins, scroll-based animations, and modals.",
@@ -15,7 +15,7 @@ export default function ProjectSection() {
         },
         {
             title: "Power Consumption Prediction",
-            image: "/images/power.png",
+            image: "/images/power-consumption.jpg",
             codeLink: "https://github.com/yourusername/power",
             descriptionPoints: [
                 "Developed a predictive model for residential power consumption using recurrent neural networks (RNNs), showcasing effective capture of temporal dependencies. ",

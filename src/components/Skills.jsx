@@ -1,10 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  FaHtml5, FaCss3Alt, FaReact, FaJava, FaGithub, FaDatabase
+  FaHtml5, FaCss3Alt, FaReact, FaJava, FaDatabase
 } from "react-icons/fa";
 import {
-  SiTailwindcss, SiMysql, SiSpringboot, SiJavascript, SiMongodb, SiAmazonaws, SiDocker
+  SiTailwindcss, SiMysql, SiSpringboot, SiJavascript, SiMongodb, SiAmazonaws, SiDocker, SiPostman, SiGit, SiGithub
 } from "react-icons/si";
 
 
@@ -24,7 +24,7 @@ const skills = [
     icon: <SiSpringboot className="text-green-700" />,
     name: "Spring Boot",
     description: "Built robust RESTful APIs using Spring Boot with validation, exception handling, and MySQL integration for full-stack applications.",
-    categories: ["Frameworks & Tools", "Web Development"],
+    categories: ["Frameworks", "Web Development"],
     proficiency: 90,
     projects: [
       { name: "Portfolio Backend" },
@@ -44,7 +44,7 @@ const skills = [
     icon: <FaReact className="text-cyan-400" />,
     name: "React",
     description: "Used React to develop interactive UIs with reusable components, stateful logic via hooks, and client-side routing with React Router for multiple web projects.",
-    categories: ["Frameworks & Tools", "Web Development"],
+    categories: ["Frameworks", "Web Development"],
     proficiency: 70,
     projects: [
       { name: "Portfolio Frontend" },
@@ -94,7 +94,7 @@ const skills = [
     icon: <SiDocker className="text-[#2496ED]" />, // Docker blue
     name: "Docker",
     description: "Used Docker to containerize backend applications for consistent deployment across environments. Familiar with writing Dockerfiles and managing containers.",
-    categories: ["Frameworks"]
+    categories: ["Tools"]
   },
   {
     icon: (
@@ -134,19 +134,44 @@ const skills = [
     icon: <SiTailwindcss className="text-sky-400" />,
     name: "Tailwind CSS",
     description: "Used Tailwind CSS to build modern, responsive UI components with utility-first classes, enabling consistent design and rapid development.",
-    categories: ["Web Development"],
+    categories: ["Frameworks","Web Development"],
     proficiency: 65,
     projects: [
       { name: "Portfolio Frontend" },
       { name: "E-commerce Application Frontend" }]
   },
   {
-    icon: <FaGithub className="text-gray-800 dark:text-white" />,
-    name: "Git/GitHub",
-    description: "Version control with Git and GitHub for managing projects, collaborating via pull requests, and maintaining clean, well-documented repos.",
-    categories: ["Frameworks"],
-    proficiency: 90
+    icon: <SiGithub className="text-black dark:text-white" />, // GitHub logo
+    name: "GitHub",
+    description: "Experience using GitHub for code collaboration, repository management, pull requests, and issue tracking. Used GitHub Actions for CI/CD in personal and team projects.",
+    proficiency: 90,
+    categories: ["Tools"],
+    projects: [
+      { name: "Portfolio Website" },
+      { name: "Spring Boot Backend" }
+    ]
   },
+  {
+    icon: <SiGit className="text-[#F05032]" />, // Git's orange color
+    name: "Git",
+    description: "Proficient in using Git for version control, including branching, merging, rebasing, and resolving conflicts. Used extensively to manage codebase changes across multiple projects.",
+    proficiency: 90,
+    categories: ["Tools"],
+    projects: [
+      { name: "Portfolio Website" },
+      { name: "Backend API Projects" }
+    ]
+  },
+  {
+  icon: <SiPostman className="text-[#FF6C37]" />, // Using react-icons
+  name: "Postman",
+  description: "Experience using Postman for API testing, automation, and debugging. Used it to test RESTful endpoints, create collections, and validate backend functionality during development.",
+  proficiency: 85,
+  categories: ["Tools"],
+  projects: [
+    { name: "Various Backend Projects" }
+  ]
+}
 ];
 
 const containerVariants = {
@@ -212,7 +237,7 @@ export default function SkillsSection() {
         </motion.h2>
 
         <div className="md:text-xl flex flex-wrap gap-2 justify-center mt-0.5 sm:mt-4">
-          {["All Skills", "Programming", "Web Development", "Frameworks"].map((cat, index) => (
+          {["All Skills", "Programming", "Web Development", "Frameworks", "Tools"].map((cat, index) => (
             <motion.button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
