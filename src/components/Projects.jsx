@@ -77,7 +77,7 @@ export default function ProjectSection() {
                             <h4 className="text-2xl font-bold text-gray-800 dark:text-white text-center md:text-center">{project.title}</h4>
                             <ul className="text-gray-700 dark:text-gray-300 text-m text-left list-disc list-outside pl-5 space-y-4">
                                 {project.descriptionPoints.map((point, i) => (
-                                    <li key={i} className="text-justify">{point}</li>
+                                    <li key={i}>{point}</li>
                                 ))}
                             </ul>
                             <div className="mt-4 md:mt-6 text-center md:text-center">
