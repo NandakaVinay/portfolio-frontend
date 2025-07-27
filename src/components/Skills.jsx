@@ -134,7 +134,7 @@ const skills = [
     icon: <SiTailwindcss className="text-sky-400" />,
     name: "Tailwind CSS",
     description: "Used Tailwind CSS to build modern, responsive UI components with utility-first classes, enabling consistent design and rapid development.",
-    categories: ["Frameworks","Web Development"],
+    categories: ["Frameworks", "Web Development"],
     proficiency: 65,
     projects: [
       { name: "Portfolio Frontend" },
@@ -163,15 +163,15 @@ const skills = [
     ]
   },
   {
-  icon: <SiPostman className="text-[#FF6C37]" />, // Using react-icons
-  name: "Postman",
-  description: "Experience using Postman for API testing, automation, and debugging. Used it to test RESTful endpoints, create collections, and validate backend functionality during development.",
-  proficiency: 85,
-  categories: ["Tools"],
-  projects: [
-    { name: "Various Backend Projects" }
-  ]
-}
+    icon: <SiPostman className="text-[#FF6C37]" />, // Using react-icons
+    name: "Postman",
+    description: "Experience using Postman for API testing, automation, and debugging. Used it to test RESTful endpoints, create collections, and validate backend functionality during development.",
+    proficiency: 85,
+    categories: ["Tools"],
+    projects: [
+      { name: "Various Backend Projects" }
+    ]
+  }
 ];
 
 const containerVariants = {
@@ -243,12 +243,14 @@ export default function SkillsSection() {
               onClick={() => setSelectedCategory(cat)}
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.10, delay: index * 0.1 }}
-              className={`px-4 py-2 rounded-full border transition duration-300 ${selectedCategory === cat
-                ? "bg-blue-800 text-white border-blue-800"
-                : "bg-transparent text-gray-800 dark:text-white dark:border-gray-500 border-gray-400 hover:bg-blue-100 dark:hover:bg-gray-700"}`}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`group relative overflow-hidden px-4 py-2 rounded-full border transition duration-300 ${selectedCategory === cat
+                  ? "bg-blue-800 text-white border-blue-800"
+                  : "bg-transparent text-gray-800 dark:text-white dark:border-gray-500 border-gray-400 hover:bg-blue-100 dark:hover:bg-gray-700"
+                }`}
             >
               {cat}
+              <span className="absolute bottom-0 left-0 h-[2px] w-full bg-blue-500 transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100" />
             </motion.button>
           ))}
         </div>
