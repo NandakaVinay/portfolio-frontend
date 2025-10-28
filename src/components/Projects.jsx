@@ -4,19 +4,22 @@ import { motion } from "framer-motion";
 export default function ProjectSection() {
     const projects = [
         {
-            title: "Portfolio Website",
-            image: "/images/portfolio.png",
-            codeLink: "https://github.com/NandakaVinay/portfolio",
+            title: "Habistry - Master your habits",
+            image: "/images/habistry.png",
+            codeLink: "https://github.com/yourusername/habistry-app",
+            techStack: "Spring Boot, React, Tailwind CSS, PostgreSQL",
             descriptionPoints: [
-                "Developed a fully responsive portfolio website using React and Tailwind CSS with a mobile-first approach, ensuring smooth performance across all devices.",
-                "Leveraged Framer Motion to add elegant page transitions and interactive animations, enhancing the user experience with smooth hover effects, fade-ins, scroll-based animations, and modals.",
-                "Enabled real-time contact functionality by integrating a Spring Boot backend on AWS EC2, allowing users to send messages via the portfolio’s contact form."
+                "Developed a Habit tracking web application to help users build and maintain productive routines through progress visualization and habit analytics.",
+                "Designed with a focus on user experience, responsiveness, and clean UI, ensuring smooth performance across devices.",
+                "On the backend, built a robust Spring Boot backend with a layered architecture ensuring clean separation of concerns. Implemented CRUD operations, input validation, and custom exception handling for reliable performance. Integrated JPA with PostGRES to manage user habits, streaks, and progress history efficiently.",
+                "Configured CORS for secure communication with the React frontend and optimized API endpoints for scalability and responsiveness."
             ]
         },
         {
             title: "Power Consumption Prediction",
             image: "/images/power-consumption.jpg",
             codeLink: "https://github.com/yourusername/power",
+            techStack: "Python, TensorFlow, Keras, Scikit-learn, Pandas, NumPy, Matplotlib",
             descriptionPoints: [
                 "Developed a predictive model for residential power consumption using recurrent neural networks (RNNs), showcasing effective capture of temporal dependencies. ",
                 "Compared RNNs with decision tree and random forest, highlighting superior performance in accuracy and efficiency.",
@@ -24,14 +27,14 @@ export default function ProjectSection() {
             ]
         },
         {
-            title: "E-commerce App",
-            image: "/images/ecommerce.png",
-            codeLink: "https://github.com/yourusername/ecommerce-app",
+            title: "Portfolio Website",
+            image: "/images/portfolio.png",
+            codeLink: "https://github.com/NandakaVinay/portfolio",
+            techStack: "Spring Boot, React, Tailwind CSS, PostgreSQL",
             descriptionPoints: [
-                "Built with Spring Boot (backend) and React (frontend).",
-                "JWT-based authentication and role management.",
-                "Admin panel to manage products and orders.",
-                "Stripe integration for secure payments."
+                "Developed a fully responsive portfolio website using React and Tailwind CSS with a mobile-first approach, ensuring smooth performance across all devices.",
+                "Leveraged Framer Motion to add elegant page transitions and interactive animations, enhancing the user experience with smooth hover effects, fade-ins, scroll-based animations, and modals.",
+                "Enabled real-time contact functionality by integrating a Spring Boot backend on AWS EC2, allowing users to send messages via the portfolio’s contact form."
             ]
         },
         {
@@ -75,6 +78,11 @@ export default function ProjectSection() {
 
                         <div className="flex flex-col gap-3 w-full">
                             <h4 className="text-2xl font-bold text-gray-800 dark:text-white text-center md:text-center">{project.title}</h4>
+
+                            <p className="text-gray-600 dark:text-gray-300 text-lg text-center md:text-center mb-4">
+                                <span className="font-semibold dark:text-gray-200">Tech Stack:</span> {project.techStack}
+                            </p>
+
                             <ul className="text-gray-700 dark:text-gray-300 text-m text-left list-disc list-outside pl-5 space-y-4">
                                 {project.descriptionPoints.map((point, i) => (
                                     <li key={i}>{point}</li>
