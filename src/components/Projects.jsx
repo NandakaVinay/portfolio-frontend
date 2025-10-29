@@ -41,14 +41,12 @@ export default function ProjectSection() {
             ]
         },
         {
-            title: "Task Manager",
-            image: "/images/task-manager.png",
-            codeLink: "https://github.com/yourusername/task-manager",
+            title: "B-Log",
+            image: "/images/b-log.png",
+            codeLink: "https://github.com/yourusername/b-log",
+            techStack: "Spring Boot, React, PostgreSQL",
             descriptionPoints: [
-                "Add, update, delete tasks with localStorage persistence.",
-                "Simple and clean UI using React and Tailwind.",
-                "Task status toggle for 'completed' or 'pending'.",
-                "Responsive layout across all devices."
+                "Coming soon"
             ]
         }
     ];
