@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 
+
 export default function ProjectSection() {
+    const [showAllProjects, setShowAllProjects] = useState(false);
+
     const projects = [
         {
             title: "Habistry - Master your habits",
@@ -61,7 +64,7 @@ export default function ProjectSection() {
             <h3 className="text-3xl sm:text-5xl font-extrabold text-center text-neutral-900 dark:text-white">Projects</h3>
 
             <div className="w-full flex flex-col gap-12">
-                {projects.map((project, index) => (
+                {(showAllProjects ? projects : projects.slice(0, 3)).map((project, index) => (
                     <motion.div
                         key={index}
                         className="flex flex-col md:flex-row items-start md:items-stretch gap-6 md:gap-10 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-600 hover:border-blue-400 dark:hover:border-blue-300 p-6"
@@ -101,6 +104,21 @@ export default function ProjectSection() {
                         </div>
                     </motion.div>
                 ))}
+            </div>
+            <div className="text-center mt-4">
+                <button
+                    onClick={() => {
+                        if (showAllProjects) {
+                            setTimeout(() => {
+                                sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+                            }, 100);
+                        }
+                        setShowAllProjects(!showAllProjects);
+                    }}
+                    className=" px-6 py-2 rounded-full bg-blue-500 text-white font-semibold shadow-md hover:bg-blue-600 transition duration-300"
+                >
+                    {showAllProjects ? "View Less" : "View More"}
+                </button>
             </div>
         </motion.section>
     );
