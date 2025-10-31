@@ -13,7 +13,7 @@ export default function HomeSection() {
       <motion.img
         src="/images/profile.png"
         alt="Profile"
-        className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full object-cover border-4 border-blue-500 shadow-md"
+        className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full object-cover border-4 border-blue-400 shadow-md"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}

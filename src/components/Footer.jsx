@@ -25,7 +25,7 @@ export default function Footer() {
           <FaLinkedin size={24} />
         </motion.a>
         <motion.a
-          href="mailto:nandakavinay@gmail.com"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=nandakavinay@gmail.com"
           transition={{ type: "spring", stiffness: 300 }}
           whileHover={{ scale: 1.25 }}
         >
