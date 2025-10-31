@@ -17,8 +17,9 @@ const skills = [
     categories: ["Programming"],
     proficiency: 90,
     projects: [
-      { name: "Portfolio" },
-      { name: "E-commerce Application" },]
+      { name: "Habistry" },
+      { name: "Portfolio" }
+      ]
   },
   {
     icon: <SiSpringboot className="text-green-700" />,
@@ -28,7 +29,7 @@ const skills = [
     proficiency: 90,
     projects: [
       { name: "Portfolio Backend" },
-      { name: "E-commerce Application Backend" },]
+      { name: "Habistry" },]
   },
   {
     icon: <SiJavascript className="text-yellow-400" />,
@@ -38,7 +39,8 @@ const skills = [
     proficiency: 80,
     projects: [
       { name: "Portfolio" },
-      { name: "E-commerce Application" },]
+      { name: "Habistry" },
+      { name: "Gateway Scripts on API Gateway's" }]
   },
   {
     icon: <FaReact className="text-cyan-400" />,
@@ -48,7 +50,7 @@ const skills = [
     proficiency: 70,
     projects: [
       { name: "Portfolio Frontend" },
-      { name: "E-commerce Application Frontend" },]
+      { name: "Habistry" },]
   },
   {
     icon: (
@@ -90,12 +92,12 @@ const skills = [
       { name: "Various projects" }
     ]
   },
-  {
-    icon: <SiDocker className="text-[#2496ED]" />, // Docker blue
-    name: "Docker",
-    description: "Used Docker to containerize backend applications for consistent deployment across environments. Familiar with writing Dockerfiles and managing containers.",
-    categories: ["Tools"]
-  },
+  // {
+  //   icon: <SiDocker className="text-[#2496ED]" />, 
+  //   name: "Docker",
+  //   description: "Used Docker to containerize backend applications for consistent deployment across environments. Familiar with writing Dockerfiles and managing containers.",
+  //   categories: ["Tools"]
+  // },
   {
     icon: (
       <img
@@ -138,32 +140,31 @@ const skills = [
     proficiency: 65,
     projects: [
       { name: "Portfolio Frontend" },
-      { name: "E-commerce Application Frontend" }]
+      { name: "Habistry" }]
   },
   {
-    icon: <SiGithub className="text-black dark:text-white" />, // GitHub logo
+    icon: <SiGithub className="text-black dark:text-white" />, 
     name: "GitHub",
     description: "Experience using GitHub for code collaboration, repository management, pull requests, and issue tracking. Used GitHub Actions for CI/CD in personal and team projects.",
     proficiency: 90,
     categories: ["Tools"],
     projects: [
       { name: "Portfolio Website" },
-      { name: "Spring Boot Backend" }
+      { name: "Various Projects" }
     ]
   },
   {
-    icon: <SiGit className="text-[#F05032]" />, // Git's orange color
+    icon: <SiGit className="text-[#F05032]" />,
     name: "Git",
     description: "Proficient in using Git for version control, including branching, merging, rebasing, and resolving conflicts. Used extensively to manage codebase changes across multiple projects.",
     proficiency: 90,
     categories: ["Tools"],
     projects: [
-      { name: "Portfolio Website" },
-      { name: "Backend API Projects" }
+      { name: "Various Projects" }
     ]
   },
   {
-    icon: <SiPostman className="text-[#FF6C37]" />, // Using react-icons
+    icon: <SiPostman className="text-[#FF6C37]" />, 
     name: "Postman",
     description: "Experience using Postman for API testing, automation, and debugging. Used it to test RESTful endpoints, create collections, and validate backend functionality during development.",
     proficiency: 85,
